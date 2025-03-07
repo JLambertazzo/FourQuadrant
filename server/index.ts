@@ -27,7 +27,7 @@ declare module "express-session" {
 }
 import { MemoryStore } from "express-session";
 
-console.log(`Expecting traffic from ${origin}:${port}`)
+console.log(`Expecting traffic from ${origin}`)
 
 const idChecker = async (req: Request, res: Response, next: NextFunction) => {
   if (req.params.boardID && !ObjectId.isValid(req.params.boardID)) {
