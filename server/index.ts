@@ -41,11 +41,8 @@ const idChecker = async (req: Request, res: Response, next: NextFunction) => {
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "../client/dist")));
-// allow cors on dev
-if (process.env.NODE_ENV === "development") {
-  console.log("allowing");
-  app.use(cors());
-}
+
+app.use(cors({ origin }));
 
 app.use("/", router);
 
