@@ -11,8 +11,9 @@ import { el, textNode } from "../js/element"
 import { Pos, Size } from "../types";
 import { infoPopup, openPopup, protectPopup } from './popups'
 // mock actions for dev environment
-
-const socket = io('http://localhost:8080')
+const { MODE, VITE_API_DEV_URL, VITE_API_URL } = import.meta.env;
+let baseURL = MODE === "development" ? VITE_API_DEV_URL : VITE_API_URL;
+const socket = io(baseURL)
 const board_id = mode === "development" ?  sessionStorage.getItem("__dev_boardId") : window.location.href.split('/')[3]
 console.log("What is", board_id)
 const defaultPos = {left: 0, top: 0}
