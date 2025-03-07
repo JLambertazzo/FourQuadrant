@@ -10,6 +10,9 @@ import { getUsername, isProtected, getBoard, createNote, updateNote, updateNoteP
 import { el, textNode } from "../js/element"
 import { Pos, Size } from "../types";
 import { infoPopup, openPopup, protectPopup } from './popups'
+// static assets from vite
+import editIconUrl from '../icons/edit.png'
+import checkIconUrl from '../icons/check.png'
 // mock actions for dev environment
 const { MODE, VITE_API_DEV_URL, VITE_API_URL } = import.meta.env;
 let baseURL = MODE === "development" ? VITE_API_DEV_URL : VITE_API_URL;
@@ -255,7 +258,7 @@ document.addEventListener("DOMContentLoaded", () => {
       .removeEventListener("click", editSticky, false);
     sticky.querySelector(".editsticky").addEventListener("click", blurInputs);
     // sticky.querySelector('.editsticky').innerText = 'Update'
-    sticky.querySelector(".editsticky").src = "../icons/check.png";
+    sticky.querySelector(".editsticky").src = checkIconUrl;
   };
 
   const blurInputs = async (e) => {
@@ -288,7 +291,7 @@ document.addEventListener("DOMContentLoaded", () => {
         .removeEventListener("click", blurInputs, false);
       sticky.querySelector(".editsticky").addEventListener("click", editSticky);
       // sticky.querySelector('.editsticky').innerText = 'Edit'
-      sticky.querySelector(".editsticky").src = "../icons/edit.png";
+      sticky.querySelector(".editsticky").src = editIconUrl;
     }
   };
 
