@@ -7,9 +7,10 @@ import http from "http";
 import { Server } from "socket.io";
 const app = express();
 const server = http.createServer(app);
+const origin = process.env.CLIENT_URL || "http://localhost:8080"
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:8081",
+    origin,
     methods: ["GET", "POST", "PATCH", "DELETE"],
   },
 });
@@ -25,6 +26,8 @@ declare module "express-session" {
   }
 }
 import { MemoryStore } from "express-session";
+
+console.log(`Expecting traffic from ${origin}:${port}`)
 
 const idChecker = async (req: Request, res: Response, next: NextFunction) => {
   if (req.params.boardID && !ObjectId.isValid(req.params.boardID)) {
