@@ -255,7 +255,7 @@ document.addEventListener("DOMContentLoaded", () => {
       .removeEventListener("click", editSticky, false);
     sticky.querySelector(".editsticky").addEventListener("click", blurInputs);
     // sticky.querySelector('.editsticky').innerText = 'Update'
-    sticky.querySelector(".editsticky").src = "/icons/check.png";
+    sticky.querySelector(".editsticky").src = "../icons/check.png";
   };
 
   const blurInputs = async (e) => {
@@ -288,7 +288,7 @@ document.addEventListener("DOMContentLoaded", () => {
         .removeEventListener("click", blurInputs, false);
       sticky.querySelector(".editsticky").addEventListener("click", editSticky);
       // sticky.querySelector('.editsticky').innerText = 'Edit'
-      sticky.querySelector(".editsticky").src = "/icons/edit.png";
+      sticky.querySelector(".editsticky").src = "../icons/edit.png";
     }
   };
 
